@@ -1,16 +1,15 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
-
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   message: string;
   data?: T;
 }
 
-export async function fetchAPI<T = any>(
+export async function fetchAPI<T = unknown>(
   endpoint: string,
   options?: RequestInit
 ): Promise<ApiResponse<T>> {
   const url = `${API_BASE_URL}/api/v1${endpoint}`;
-  
+
   const response = await fetch(url, {
     headers: {
       "Content-Type": "application/json",
