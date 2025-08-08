@@ -23,6 +23,8 @@ class Settings(BaseSettings):
 
     SECRET_KEY: str = "development-secret-key-change-in-production"
 
+    OPENAI_API_KEY: str = ""
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def assemble_cors_origins(cls, v: Any) -> list[str]:

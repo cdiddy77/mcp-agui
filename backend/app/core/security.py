@@ -4,7 +4,7 @@ from typing import Any
 
 def create_access_token(
     subject: str | Any, expires_delta: timedelta | None = None
-) -> str:
+) -> dict:
     if expires_delta:
         expire = datetime.now(UTC) + expires_delta
     else:
